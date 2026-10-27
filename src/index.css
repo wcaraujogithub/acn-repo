@@ -1,93 +1,18 @@
-/* @import "tailwindcss";
-
-@layer base {
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: #0B0F19;
-    color: #F8FAFC;
-  }
-}
-
-.flag-bg {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.88)), 
-              radial-gradient(circle at 50% 30%, rgba(220, 38, 38, 0.15), transparent 70%),
-              radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.1), transparent 50%);
-}
-
-.glow-gold {
-  box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.3);
-}
-
-.glow-red {
-  box-shadow: 0 0 25px -5px rgba(220, 38, 38, 0.4);
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #0F172A;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 3px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #D97706;
-} */
-
-/* @import "tailwindcss";
-
-@layer base {
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: #0B0F19;
-    color: #F8FAFC;
-  }
-}
-
-.flag-bg {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.88)), 
-              radial-gradient(circle at 50% 30%, rgba(220, 38, 38, 0.15), transparent 70%),
-              radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.1), transparent 50%);
-}
-
-.glow-gold {
-  box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.3);
-}
-
-.glow-red {
-  box-shadow: 0 0 25px -5px rgba(220, 38, 38, 0.4);
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #0F172A;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 3px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #D97706;
-} */
 
 @import "tailwindcss";
 
 @layer base {
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #0B0F19;
+    background-color: #05070A; /* Preto ultra profundo */
     color: #F8FAFC;
   }
 }
 
 .flag-bg {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.88)), 
-              radial-gradient(circle at 50% 30%, rgba(220, 38, 38, 0.15), transparent 70%),
-              radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.1), transparent 50%);
+  background: linear-gradient(135deg, rgba(5, 7, 10, 0.99), rgba(9, 13, 20, 0.97)), 
+              radial-gradient(circle at 50% 30%, rgba(220, 38, 38, 0.05), transparent 70%),
+              radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.03), transparent 50%);
 }
 
 .glow-gold {
@@ -98,15 +23,14 @@
   box-shadow: 0 0 25px -5px rgba(220, 38, 38, 0.4);
 }
 
-/* Barra de rolagem personalizada com hover laranja (Item 6) */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #0F172A;
+  background: #05070A;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #1E293B;
   border-radius: 3px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {

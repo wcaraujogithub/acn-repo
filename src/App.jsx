@@ -10,6 +10,9 @@ import CriticalAnalysis from './components/CriticalAnalysis'
 import SignupForm from './components/SignupForm'
 import { supabase } from './supabaseClient'
 
+// Import da imagem oficial da ACN
+import acnBanner from './assets/acn-banner.png'
+
 export default function App() {
   const [totalApoiadores, setTotalApoiadores] = useState(143232)
 
@@ -28,28 +31,72 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#0B0F19] text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950 custom-scrollbar">
-      <Header />
-      <main>
-        <Hero totalApoiadores={totalApoiadores} />
-        <Calculator />
-        <Pillars />
-        <PoliticianCosts />
-        <StateTaxes />
-        <CriticalAnalysis />
-        <SignupForm onApoiadorAdicionado={fetchContador} />
-      </main>
-<footer className="py-12 text-center border-t border-slate-900 bg-slate-950 space-y-3">
-        <div className="text-sm font-semibold text-slate-400">
-          MNC — Movimento Nacional do Contribuinte
-        </div>
-        <p className="text-xs text-slate-500 max-w-xl mx-auto px-4 leading-relaxed">
-          Este movimento é uma iniciativa virtual e cidadã de conscientização econômica e fiscal. Não arrecadamos fundos partidários e não apoiamos candidatos específicos.
-        </p>
-        <div className="text-xs text-slate-600 pt-2 font-mono">
-          © 2026 MNC. O movimento de quem trabalha e paga a conta.
+    <div className="relative min-h-screen bg-[#0B0F19] text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950 custom-scrollbar overflow-x-hidden">
+      
+      {/* 🎨 TESTE: Fundo Fixo Gigante que Acompanha o Scroll */}
+      <div 
+        className="fixed inset-0 pointer-events-none z-0 bg-center bg-no-repeat bg-contain opacity-[0.07] transition-opacity"
+        style={{ backgroundImage: `url(${acnBanner})` }}
+      ></div>
+
+      {/* Conteúdo da Aplicação */}
+      <div className="relative z-10">
+        <Header />
+        <main>
+          <Hero totalApoiadores={totalApoiadores} />
+          <Calculator />
+          <Pillars />
+          <PoliticianCosts />
+          <StateTaxes />
+          <CriticalAnalysis />
+          <SignupForm onApoiadorAdicionado={fetchContador} />
+        </main>
+
+        {/* <footer className="py-12 text-center border-t border-slate-900 bg-slate-950/90 backdrop-blur-sm space-y-3 relative z-10">
+          <div className="text-sm font-semibold text-slate-400">
+            ACN — Movimento Popular do Contribuinte
+          </div>
+          <p className="text-xs text-slate-500 max-w-xl mx-auto px-4 leading-relaxed">
+            Este movimento é uma iniciativa virtual e cidadã de conscientização econômica e fiscal. Não arrecadamos fundos partidários e não apoiamos candidatos específicos.
+          </p>
+          <div className="text-xs text-slate-600 pt-2 font-mono">
+            © 2026 ACN. A Conta É Nossa. Nós pagamos. Eles precisam prestar contas.
+          </div>
+        </footer> */}
+
+   {/* Rodapé com a Bandeira Oficial da ACN alinhada à esquerda do texto */}
+      <footer className="relative bg-slate-950 border-t border-slate-900 py-10 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+            
+            {/* Imagem Oficial da ACN posicionada à esquerda, com tamanho proporcional */}
+            <div className="flex-shrink-0">
+              <img 
+                src={acnBanner} 
+                alt="Arte ACN A Conta É Nossa" 
+                className="w-36 sm:w-44 h-auto object-contain rounded-xl shadow-lg border border-slate-800/80"
+              />
+            </div>
+
+            {/* Conteúdo Textual logo ao lado */}
+            <div className="space-y-3 text-center md:text-left">
+              <div className="text-base font-black tracking-tight text-white">
+                ACN — Movimento Popular do Contribuinte
+              </div>
+              
+              <p className="text-xs text-slate-400 leading-relaxed max-w-xl">
+                Este movimento é uma iniciativa virtual e cidadã de conscientização econômica e fiscal. Não arrecadamos fundos partidários e não apoiamos candidatos específicos.
+              </p>
+              
+              <div className="text-xs text-amber-500 font-mono font-bold pt-1">
+                © 2026 ACN. A Conta É Nossa. Nós pagamos. Eles precisam prestar contas.
+              </div>
+            </div>
+
+          </div>
         </div>
       </footer>
+      </div>
     </div>
   )
 }
