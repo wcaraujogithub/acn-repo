@@ -69,7 +69,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             
-            {/* Imagem Oficial da ACN posicionada à esquerda, com tamanho proporcional */}
+            {/* Imagem Oficial da ACN posicionada à esquerda */}
             <div className="flex-shrink-0">
               <img 
                 src={acnBanner} 
@@ -79,7 +79,7 @@ export default function App() {
             </div>
 
             {/* Conteúdo Textual logo ao lado */}
-            <div className="space-y-3 text-center md:text-left">
+            <div className="space-y-2.5 text-center md:text-left">
               <div className="text-base font-black tracking-tight text-white">
                 ACN — Movimento Popular do Contribuinte
               </div>
@@ -88,8 +88,13 @@ export default function App() {
                 Este movimento é uma iniciativa virtual e cidadã de conscientização econômica e fiscal. Não arrecadamos fundos partidários e não apoiamos candidatos específicos.
               </p>
               
-              <div className="text-xs text-amber-500 font-mono font-bold pt-1">
+              <div className="text-xs text-amber-500 font-mono font-bold">
                 © 2026 ACN. A Conta É Nossa. Nós pagamos. Eles precisam prestar contas.
+              </div>
+
+              {/* Linha de Direitos Reservados Adicionada */}
+              <div className="text-[11px] text-slate-500 pt-1">
+                Todos os direitos reservados.
               </div>
             </div>
 
