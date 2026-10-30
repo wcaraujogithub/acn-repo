@@ -1,50 +1,27 @@
+import { useState } from 'react'
+import { Menu, ShieldCheck, X } from 'lucide-react'
 
-import { ShieldCheck } from 'lucide-react'
-import logoAc from '../assets/logo-acn.png' // ajuste o caminho se necessário
+const links = [
+  ['A Realidade', '/#calculadora'], ['Os 4 Pilares', '/#pilares'], ['Custo do Político', '/#custo-politico'],
+  ['Impostos por Estado', '/#impostometro'], ['Crítica Apartidária', '/#apartidario'],
+  ['Enquetes', '/enquetes'], ['Questionários', '/questionarios'], ['História', '/historia']
+]
 
 export default function Header() {
+  const [open, setOpen] = useState(false)
   return (
-    <nav className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-
-          {/* <a href="#hero" className="flex items-center gap-3 group">
-            <img src={logoAc} alt="ACN - A Conta É Nossa" className="h-12 w-auto object-contain group-hover:scale-105 transition-transform" />
-          </a> */}
-
-
-             {/* Logo & Título */}
-         <a href="#hero" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500 via-amber-600 to-red-600 p-0.5 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
-               <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center font-black text-amber-500 text-xl tracking-tighter">
-                 ACN
-               </div>
-             </div>
-             <div>
-               <span className="text-xl font-black tracking-tight text-white block leading-none">
-                <span className="text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30 ml-1 font-bold">OFICIAL</span>
-               </span>
-               <span className="text-xs text-slate-400 font-medium tracking-wide">Movimento Nacional do Contribuinte</span>
-             </div>
-           </a>
-          
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-            <a href="#calculadora" className="hover:text-amber-400 transition-colors">A Realidade</a>
-            <a href="#pilares" className="hover:text-amber-400 transition-colors">Os 4 Pilares</a>
-            <a href="#custo-politico" className="hover:text-amber-400 transition-colors">Custo do Político</a>
-            <a href="#impostometro" className="hover:text-amber-400 transition-colors">Impostos por Estado</a>
-            <a href="#apartidario" className="hover:text-amber-400 transition-colors">Crítica Apartidária</a>
-          </div>
-
-          <a
-            href="#apoie"
-            className="flex items-center gap-2 text-slate-950 font-black px-5 py-2.5 rounded-xl text-sm transition-all shadow-md shadow-amber-500/20 hover:scale-105"
-            style={{ background: 'linear-gradient(90deg, #f59e0b 0%, #dc2626 100%)', color: '#020617' }}
-          >
-            <ShieldCheck className="w-4 h-4 text-slate-950" />
-            <span>VAMOS FAZER PARTE</span>
+    <nav className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/95 backdrop-blur-md">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex min-h-20 items-center justify-between gap-4">
+          <a href="/#hero" className="group flex min-w-0 items-center gap-3">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-emerald-500/40 bg-gradient-to-br from-emerald-950 via-slate-950 to-amber-950 text-xl font-black tracking-tighter text-amber-300 shadow-lg">ACN</div>
+            <div className="min-w-0"><span className="block text-base font-black leading-tight text-white sm:text-lg">A Conta é Nossa</span><span className="block text-[11px] font-medium tracking-wide text-slate-400">Nós pagamos. Eles precisam prestar contas.</span></div>
           </a>
+          <div className="hidden items-center gap-5 xl:flex">{links.map(([label, href]) => <a key={label} href={href} className="whitespace-nowrap text-xs font-semibold text-slate-300 transition hover:text-emerald-300">{label}</a>)}</div>
+          <div className="hidden shrink-0 lg:block"><a href="/#apoie" style={{ background: 'linear-gradient(110deg, #10b981 0%, #d8ad42 100%)' }} className="inline-flex items-center gap-2 rounded-xl px-4 py-3 text-xs font-black text-slate-950 shadow-lg shadow-emerald-950/40 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"><ShieldCheck size={16}/> VAMOS FAZER PARTE</a></div>
+          <button type="button" aria-label={open ? 'Fechar menu' : 'Abrir menu'} aria-expanded={open} onClick={() => setOpen((v) => !v)} className="rounded-lg border border-slate-700 p-2 text-white hover:border-emerald-400 xl:hidden">{open ? <X/> : <Menu/>}</button>
         </div>
+        {open && <div className="grid gap-1 border-t border-slate-800 py-3 xl:hidden">{links.map(([label, href]) => <a key={label} href={href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-3 text-sm font-semibold text-slate-200 hover:bg-slate-800 hover:text-emerald-300">{label}</a>)}<a href="/#apoie" onClick={() => setOpen(false)} style={{ background: 'linear-gradient(110deg, #10b981 0%, #d8ad42 100%)' }} className="mt-2 rounded-xl px-4 py-3 text-center text-sm font-black text-slate-950 shadow-lg shadow-emerald-950/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300">VAMOS FAZER PARTE</a></div>}
       </div>
     </nav>
   )

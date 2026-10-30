@@ -8,6 +8,10 @@ import PoliticianCosts from './components/PoliticianCosts'
 import StateTaxes from './components/StateTaxes'
 import CriticalAnalysis from './components/CriticalAnalysis'
 import SignupForm from './components/SignupForm'
+import Enquetes from './components/Enquetes'
+import DestaqueEnquete from './components/DestaqueEnquete'
+import Questionarios from './components/Questionarios'
+import Historia from './components/Historia'
 import { supabase } from './supabaseClient'
 
 // Import da imagem oficial da ACN
@@ -15,6 +19,13 @@ import acnBanner from './assets/acn-banner.png'
 
 export default function App() {
   const [totalApoiadores, setTotalApoiadores] = useState(143232)
+  const [currentPath, setCurrentPath] = useState(window.location.pathname)
+
+  useEffect(() => {
+    const syncPath = () => setCurrentPath(window.location.pathname)
+    window.addEventListener('popstate', syncPath)
+    return () => window.removeEventListener('popstate', syncPath)
+  }, [])
 
   const fetchContador = async () => {
     const { count, error } = await supabase
@@ -43,13 +54,24 @@ export default function App() {
       <div className="relative z-10">
         <Header />
         <main>
-          <Hero totalApoiadores={totalApoiadores} />
-          <Calculator />
-          <Pillars />
-          <PoliticianCosts />
-          <StateTaxes />
-          <CriticalAnalysis />
-          <SignupForm onApoiadorAdicionado={fetchContador} />
+          {currentPath.startsWith('/enquetes') ? (
+            <Enquetes />
+          ) : currentPath.startsWith('/questionarios') ? (
+            <Questionarios />
+          ) : currentPath.startsWith('/historia') ? (
+            <Historia />
+          ) : (
+            <>
+              <Hero totalApoiadores={totalApoiadores} />
+              <DestaqueEnquete />
+              <Calculator />
+              <Pillars />
+              <PoliticianCosts />
+              <StateTaxes />
+              <CriticalAnalysis />
+              <SignupForm onApoiadorAdicionado={fetchContador} />
+            </>
+          )}
         </main>
 
         {/* <footer className="py-12 text-center border-t border-slate-900 bg-slate-950/90 backdrop-blur-sm space-y-3 relative z-10">
