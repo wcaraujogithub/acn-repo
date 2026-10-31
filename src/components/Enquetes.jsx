@@ -225,5 +225,7 @@ export default function Enquetes() {
         <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-slate-500">Transparência metodológica: a prevenção de duplicidade usa um identificador técnico armazenado no navegador. A pessoa pode contornar essa limitação usando outro dispositivo ou apagando os dados locais. Os resultados agregados não expõem registros individuais. Para detectar alterações feitas por administradores com privilégios no banco, os resumos de auditoria também precisam ser preservados periodicamente fora do Supabase.</p>
       </div>
     </section>
+
+    
   )
 }

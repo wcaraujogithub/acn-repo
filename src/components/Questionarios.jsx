@@ -70,4 +70,6 @@ export default function Questionarios() {
       {polls.length > 1 && <nav aria-label="Selecionar questionário" className="mt-5 flex flex-wrap justify-center gap-2">{polls.map((item, i) => <button key={item.id} type="button" aria-current={active === i ? 'page' : undefined} onClick={() => { setActive(i); setAnswers({}); setMessage(''); setError('') }} className={`rounded-full px-4 py-2 text-sm font-bold ${active === i ? 'bg-emerald-400 text-slate-950' : 'border border-slate-700 text-slate-300 hover:border-emerald-400'}`}>{i + 1}. {item.title}</button>)}</nav>}
       <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-slate-500">A proteção contra respostas repetidas é baseada em identificador técnico do navegador, não em identidade civil. Outro navegador ou dispositivo pode participar novamente. Participações voluntárias não constituem amostra representativa da população.</p>
     </div></main>
+
+    
 }

@@ -142,4 +142,7 @@ export default function Historia() {
       </section>
     </div>
   </main>
+
+
+
 }
